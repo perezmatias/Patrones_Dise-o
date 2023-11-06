@@ -1,13 +1,20 @@
-from FactoryLcdAzul import FactoryLcdAzul
-from FactoryPlasmaAmarillo import FactoryPlasmaAmarillo
-from EnsamblajeTv import EnsamblajeTv
+from AutoDirector import AutoDirector
+from FordBuilder import FordBuilder
+from MitsubishiBuilder import MitsubishiBuilder
 
 def main():
-    fabrica1 = FactoryLcdAzul()
-    ensamble1 = EnsamblajeTv(fabrica1)
+    director = AutoDirector()
+    ford = FordBuilder()
+    Mitsubishi = MitsubishiBuilder()
+    director.set_auto_builder(ford)
+    director.construct_auto()
+    auto1 = director.get_auto()
+    director.set_auto_builder(Mitsubishi)
+    director.construct_auto()
+    auto2 = director.get_auto()
+    print(f"El auto A es un {auto1.get_modelo()} de la marca {auto1.get_marca()}")
+    print(f"El auto B es un {auto2.get_modelo()} de la marca {auto2.get_marca()}")
 
-    fabrica2 = FactoryPlasmaAmarillo()
-    ensamble2 = EnsamblajeTv(fabrica2)
 
 if __name__ == "__main__":
     main()

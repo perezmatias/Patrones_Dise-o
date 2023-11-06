@@ -1,11 +1,11 @@
-from PrenderServer import PrenderServer
-from BrasilServer import BrasilServer
-from Invoker import Invoker
+from TrianguloFactory import TrianguloFactory
+from TrianguloFactoryMethod import TrianguloFactoryMethod
 
 def main():
-    commander = PrenderServer(BrasilServer())
-    serverAdmin = Invoker(commander)
-    serverAdmin.run()
+    metodo = TrianguloFactory()
+    triangulo = metodo.create_triangulo(10, 10, 10)
+
+    print(triangulo.get_descripcion())
 
 if __name__ == "__main__":
     main()

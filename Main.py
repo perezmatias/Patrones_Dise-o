@@ -1,8 +1,11 @@
-from Banco import Banco
+from PrenderServer import PrenderServer
+from BrasilServer import BrasilServer
+from Invoker import Invoker
 
 def main():
-    banco = Banco()
-    banco.solicitud_prestamo(1000000)
+    commander = PrenderServer(BrasilServer())
+    serverAdmin = Invoker(commander)
+    serverAdmin.run()
 
 if __name__ == "__main__":
     main()
